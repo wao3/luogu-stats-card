@@ -7,5 +7,6 @@
   ],
   "builds": [
     { "src": "api/*.js", "use": "@vercel/node" }
-  ]
+  ],
+  "regions": ["hkg1"]
 }
