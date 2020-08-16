@@ -1,4 +1,4 @@
-const { renderSVG } = require("../src/stats-card");
+const { fetchStats, renderSVG } = require("../src/stats-card");
 
 module.exports = async (req, res) => {
   const { id } = req.query;
@@ -7,5 +7,5 @@ module.exports = async (req, res) => {
   res.setHeader("Cache-Control", `public, max-age=7200`); // 7200秒（2小时） 缓存
 
   const stats = await fetchStats(id);
-  return renderSVG(stats);
+  return res.send(renderSVG(stats));
 };
