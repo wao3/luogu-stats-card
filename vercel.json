@@ -4,5 +4,8 @@
       "source": "/",
       "destination": "https://github.com/wao3/luogu-stats-card"
     }
+  ],
+  "builds": [
+    { "src": "api/*.js", "use": "@vercel/node" }
   ]
 }
