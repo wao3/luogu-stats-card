@@ -3,6 +3,12 @@
 
 `luogu-stats-card`是一个动态生成洛谷用户练习数据卡片的工具，可以展示自己的做题情况。可以用于个人主页、博客、github等可以插入图片的地方。
 
+## TODO
+
+1. 修复获取数据错误和用户设置数据不可见的bug
+2. 增加黑暗模式
+3. 增加咕值卡片（此功能需要cookie，因此必须部署到自己的服务中）
+
 ## 效果预览
 
 [![wangao的练习情况](https://luogu.vercel.app/api?id=313209)](https://github.com/wao3/luogu-stats-card)
