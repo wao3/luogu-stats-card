@@ -1,7 +1,10 @@
 > 注意：为了不滥用洛谷服务器流量，本项目利用 vercel 的边缘缓存功能缓存了 12 小时数据，即同一个用户卡片 **24 小时内最多只会向洛谷服务器请求 2 次数据**，并且只有在用户访问卡片时才会请求数据。
 ## 简介
 
-![stars](https://badgen.net/github/stars/wao3/luogu-stats-card?style=flat-square) ![forks](https://badgen.net/github/forks/wao3/luogu-stats-card?style=flat-square) ![HitCount](http://hits.dwyl.com/wao3/luogu-stats-card.svg) ![MIT License](https://badgen.net/github/license/wao3/luogu-stats-card?style=flat-square)
+![stars](https://badgen.net/github/stars/wao3/luogu-stats-card?style=flat-square)
+![forks](https://badgen.net/github/forks/wao3/luogu-stats-card?style=flat-square)
+[![HitCount](http://hits.dwyl.com/wao3/luogu-stats-card.svg)](http://hits.dwyl.com/wao3/luogu-stats-card)
+[![MIT License](https://badgen.net/github/license/wao3/luogu-stats-card?style=flat-square)](https://github.com/wao3/luogu-stats-card/blob/master/LICENSE)
 
 `luogu-stats-card`是一个动态生成洛谷用户练习数据卡片的工具，可以展示自己的做题情况。可以用于个人主页、博客、github等可以插入图片的地方。
 
