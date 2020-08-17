@@ -44,7 +44,7 @@
 
    效果：
 
-   ![wangao的练习情况](https://luogu.vercel.app/api?id=313209&hide_title=true)
+   ![wangao的练习情况](https://luogu.vercel.app/api?id=313209&hide_title=1)
 
 2. **黑暗模式**，只需在链接最后带上`&dark_mode=true`即可，例如：
 
@@ -54,7 +54,8 @@
 
    效果：
 
-   ![wangao的练习情况](https://luogu.vercel.app/api?id=313209&dark_mode=true)
+   ![wangao的练习情况](https://luogu.vercel.app/api?id=313209&dark_mode=1)
+   
 
 ## 自行部署
 
