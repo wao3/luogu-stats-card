@@ -1,15 +1,15 @@
-> 注意：为了不滥用洛谷服务器流量，本项目利用 vercel 的边缘缓存功能缓存了2小时数据，即同一个用户卡片**24小时内最多只会向洛谷服务器请求12次数据**。
+> 注意：为了不滥用洛谷服务器流量，本项目利用 vercel 的边缘缓存功能缓存了 12 小时数据，即同一个用户卡片 **24 小时内最多只会向洛谷服务器请求 2 次数据**，并且只有在用户访问卡片时才会请求数据。
 ## 简介
 
-![stars](https://badgen.net/github/stars/wao3/luogu-stats-card?style=flat-square) ![forks](https://badgen.net/github/forks/wao3/luogu-stats-card?style=flat-square) ![HitCount](http://hits.dwyl.com/wao3/luogu-stats-card.svg)
+![stars](https://badgen.net/github/stars/wao3/luogu-stats-card?style=flat-square) ![forks](https://badgen.net/github/forks/wao3/luogu-stats-card?style=flat-square) ![HitCount](http://hits.dwyl.com/wao3/luogu-stats-card.svg) ![MIT License](https://badgen.net/github/license/wao3/luogu-stats-card?style=flat-square)
 
 `luogu-stats-card`是一个动态生成洛谷用户练习数据卡片的工具，可以展示自己的做题情况。可以用于个人主页、博客、github等可以插入图片的地方。
 
 ## TODO
 
 - [x] ~~修复获取数据错误和用户设置数据不可见的bug~~
-- [ ] 增加黑暗模式
-- [ ] 增加咕值卡片（此功能需要cookie，因此必须部署到自己的服务中）
+- [x] ~~增加黑暗模式~~
+- [ ] 增加咕值卡片（此功能需要cookie，因此必须部署到自己的服务(免费的)中）
 
 ## 效果预览
 
@@ -17,17 +17,41 @@
 
 ## 如何使用
 
-1. 仅使用图片，直接复制以下内容到任意 markdown 编辑器中，并将`?id=`后面的数字更改为自己的 id 即可（id是洛谷个人主页地址的一串数字）。
+1. **仅使用图片**，直接复制以下内容到任意 markdown 编辑器中，并将`?id=`后面的数字更改为自己的 id 即可（id是洛谷个人主页地址的一串数字）。
 
-   ```md
+   ```markdown
    ![wangao的练习情况](https://luogu.vercel.app/api?id=313209)
    ```
 
-2. 使用图片链接，复制以下内容，第二个小括号内的地址是点击该图片跳转的地址，建议设置为洛谷个人主页。
+2. **使用图片链接**，复制以下内容，第二个小括号内的地址是点击该图片跳转的地址，建议设置为洛谷个人主页。
 
-   ```md
+   ```markdown
    [![wangao的练习情况](https://luogu.vercel.app/api?id=313209)](https://github.com/wao3/luogu-stats-card)
    ```
+
+### 自定义选项
+
+使用卡片时，支持设定自定义效果选项，可以组合使用。
+
+1. **隐藏标题**，只需在链接最后带上`&hide_title=true`即可，例如：
+
+   ```markdown
+   ![wangao的练习情况](https://luogu.vercel.app/api?id=313209&hide_title=true)
+   ```
+
+   效果：
+
+   ![wangao的练习情况](https://luogu.vercel.app/api?id=313209&hide_title=true)
+
+2. **黑暗模式**，只需在链接最后带上`&dark_mode=true`即可，例如：
+
+   ```markdown
+   ![wangao的练习情况](https://luogu.vercel.app/api?id=313209&dark_mode=true)
+   ```
+
+   效果：
+
+   ![wangao的练习情况](https://luogu.vercel.app/api?id=313209&dark_mode=true)
 
 ## 自行部署
 
