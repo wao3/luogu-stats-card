@@ -73,7 +73,8 @@ const renderSVG = (stats, options) => {
     "Green": "#5eb95e",
     "Orange": "#e67e22",
     "Red": "#e74c3c",
-    "Purple": "#9d3dcf"
+    "Purple": "#9d3dcf",
+    "Cheater": "#ad8b00"
   }
 
   const renderItem = (label, color, num, height) => {
