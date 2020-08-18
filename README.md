@@ -16,7 +16,7 @@
 
 ## 效果预览
 
-[![wangao的练习情况](https://luogu.vercel.app/api?id=313209)](https://github.com/wao3/luogu-stats-card)
+![wangao的练习情况](https://luogu.vercel.app/api?id=313209)
 
 ## 如何使用
 

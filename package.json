@@ -8,6 +8,7 @@
   "author": "wao",
   "license": "MIT",
   "dependencies": {
+    "anafanafo": "^1.0.0",
     "axios": "^0.19.2"
   }
 }
