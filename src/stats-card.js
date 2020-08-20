@@ -1,6 +1,6 @@
 const axios = require("axios");
 const anafanafo = require('anafanafo')
-const { renderError } = require("./common.js")
+const { Card, renderError } = require("./common.js")
 
 async function fetchStats(id) {
   const res = await axios.get(`https://www.luogu.com.cn/user/${id}?_contentOnly`)
@@ -41,10 +41,14 @@ const renderSVG = (stats, options) => {
     color,
     ccfLevel,
     passed,
-    hideInfo
+    hideInfo,
   } = stats;
   const { hideTitle, darkMode } = options || {};
-
+  
+  const bodyHeight = 250;
+  const cardWidth = 500;  //卡片宽度
+  const labelWidth = 90;  //头部文字长度
+  const progressWidth = 300; //500 - 25*2(padding) - 90(头部文字长度) - 60(预留尾部文字长度)，暂时固定，后序提供自定义选项;
   const nameLength = anafanafo(name)/10*1.8; //计算字体大小为18pt的文本长度
 
   if(hideInfo) {
@@ -94,68 +98,59 @@ const renderSVG = (stats, options) => {
     "Cheater": "#ad8b00"
   }
 
-  const renderItem = (label, color, num, height) => {
-    const width = (num+1) / (max+1) * 300;
-    return `
-    <g transform="translate(0, ${height})">
-      <text data-testid="s-text" x="2" y="15" class="s-text">${label}</text>
-      <text x="${width + 100}" y="15" class="s-text">${num}题</text>
-      <rect height="11" fill="${color}" rx="5" ry="5" x="90" y="5" width="${width}"></rect>
-    </g>
-    `
+  const renderCoordinate = () => {// (maxNum, labelWidth, progressWidth, bodyHeight) => {
+    const dw = progressWidth / 4;
+    let res = "";
+    for(let i = 0; i <= 4; ++i) {
+      res += `
+      <line x1="${labelWidth + dw*i}" y1="0" x2="${labelWidth + dw*i}" y2="${bodyHeight - 10}"  class="line"/>
+      <text x="${labelWidth + dw*i - (i==0?3:5) }" y="${bodyHeight}"  class="text">${max*i/4}</text>
+      `;
+    }
+    return res;
   }
 
-  let items = "";
-  for(let i = 0; i < 8; ++i) {
-    items += renderItem(DIFFICULTY[i].label, DIFFICULTY[i].color, passed[i], i*30);
+  const renderLine = () => { //(label, color, height, num, unit) => {
+    let items = "";
+    for(let i = 0; i < 8; ++i) {
+      const width = (passed[i]+1) / (max+1) * progressWidth;
+      items += `
+      <g transform="translate(0, ${i*30})">
+        <text x="2" y="15" class="text">${DIFFICULTY[i].label}</text>
+        <text x="${width + 100}" y="15" class="text">${passed[i]}题</text>
+        <rect height="11" fill="${DIFFICULTY[i].color}" rx="5" ry="5" x="${labelWidth}" y="5" width="${width}"></rect>
+      </g>
+      `
+    }
+    return items;
   }
 
   const textColor = darkMode?"#fffefe":"#333333";
-  const bgColor = darkMode?"#444444":"#fffefe";
-  const lineColor = darkMode?"#666666":"#dddddd";
 
-  return `
-  <svg xmlns="http://www.w3.org/2000/svg" width="500" height="${hideTitle ? 290 : 330}" viewBox="0 0 500 ${hideTitle ? 290 : 330}" fill="none">
-    <style>
-      .s-text { font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: ${textColor}}
-      .line {stroke:${lineColor}; stroke-width:1}
-    </style>
-    <rect data-testid="card-bg" x="0.5" y="0.5" rx="4.5" height="99%" stroke="${darkMode?"":"#E4E2E2"}" width="99%" fill="${bgColor}" stroke-opacity="1" />
-    
-    ${hideTitle ? `` : `
-    <g data-testid="card-title" transform="translate(25, 35)">
-      <g transform="translate(0, 0)" font-family="Verdana, Segoe UI, Ubuntu, Sans-Serif" text-rendering="geometricPrecision" font-size="18">
-        <text x="0" y="0" fill="${NAMECOLOR[color]}" font-weight="bold" textLength="${nameLength}">
-          ${name}
-        </text>
-        ${ccfLevel < 3 ? "" : ccfBadge}
-        <text x="${nameLength + (ccfLevel < 3 ? 10 : 28)}" y="0" fill="${textColor}" font-weight="normal">
-          的练习情况
-        </text>
-      </g>
-    </g>`}
+  const title = `
+  <g transform="translate(0, 0)" font-family="Verdana, Microsoft Yahei" text-rendering="geometricPrecision" font-size="18">
+    <text x="0" y="0" fill="${NAMECOLOR[color]}" font-weight="bold" textLength="${nameLength}">
+      ${name}
+    </text>
+    ${ccfLevel < 3 ? "" : ccfBadge}
+    <text x="${nameLength + (ccfLevel < 3 ? 10 : 28)}" y="0" fill="${textColor}" font-weight="normal">
+      的练习情况
+    </text>
+  </g>`;
 
-    <g data-testid="main-card-body" transform="translate(0, ${hideTitle ? 20 : 55})">
-      <svg data-testid="lang-items" x="25">
-
-        <line x1="90"  y1="0" x2="90" y2="240"  class="line"/>
-        <line x1="165" y1="0" x2="165" y2="240" class="line"/>
-        <line x1="240" y1="0" x2="240" y2="240" class="line"/>
-        <line x1="315" y1="0" x2="315" y2="240" class="line"/>
-        <line x1="390" y1="0" x2="390" y2="240" class="line"/>
-
-        <text x="87" y="250"  class="s-text">0</text>
-        <text x="160" y="250" class="s-text">${max*0.25}</text>
-        <text x="235" y="250" class="s-text">${max*0.5}</text>
-        <text x="310" y="250" class="s-text">${max*0.75}</text>
-        <text x="385" y="250" class="s-text">${max}</text>
-
-        ${items}
-      </svg>
-    </g>
-  </svg>
+  const body = `
+  <g>
+    ${renderCoordinate()}
+    ${renderLine()}
+  </g>
   `
 
+  return new Card({
+    hideTitle,
+    darkMode,
+    title,
+    body,
+  }).render();
 }
 
 module.exports = { fetchStats, renderSVG }
