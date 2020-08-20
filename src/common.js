@@ -1,10 +1,10 @@
 class Card {
   constructor({
     width = 450,
-    height = 240,
+    height = 250,
     title = "",
     body = "",
-    titleHeight = 30,
+    titleHeight = 25,
     hideTitle = false,
     css = "",
     darkMode = "",
@@ -50,7 +50,7 @@ class Card {
           ${this.title}
         </g>`}
 
-        <g transform="translate(${this.paddingX}, ${this.hideTitle ? this.paddingX : this.paddingX + this.paddingY})">
+        <g transform="translate(${this.paddingX}, ${this.hideTitle ? this.paddingY : this.paddingY + this.titleHeight})">
           ${this.body}
         </g>
       </svg>`;
