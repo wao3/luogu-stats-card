@@ -56,6 +56,15 @@
    效果：
 
    ![wangao的练习情况](https://luogu.vercel.app/api?id=313209&dark_mode=1)
+3. **自定义宽度**，默认500，限制宽度在500到1920之间，只需在链接最后带上`&card_width=需要的宽度`即可，例如：
+
+   ```markdown
+   ![wangao的练习情况](https://luogu.vercel.app/api?id=313209&card_width=750)
+   ```
+
+   效果：
+
+   ![wangao的练习情况](https://luogu.vercel.app/api?id=313209&card_width=750)
    
 
 ## 自行部署
@@ -64,7 +73,7 @@
 
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/wao3/luogu-stats-card)
 
-## 如何贡献
+## 如何参与贡献
 
 #### 提供bug反馈或建议
 
