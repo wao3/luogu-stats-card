@@ -1,3 +1,5 @@
+const anafanafo = require('anafanafo');
+
 const NAMECOLOR = {
   "Gray": "#bbbbbb",
   "Blue": "#0e90d2",
@@ -50,6 +52,7 @@ class Card {
       <svg xmlns="http://www.w3.org/2000/svg" width="${cardSize.width}" height="${cardSize.height}" viewBox="0 0 ${cardSize.width} ${cardSize.height}" fill="none">
         <style>
           .text { font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: ${this.darkMode?"#fffefe":"#333333"} }
+          .title {fill: ${this.darkMode?"#fffefe":"#333333"}}
           .line { stroke:${this.darkMode?"#666666":"#dddddd"}; stroke-width:1 }
           ${this.css}
         </style>
@@ -120,7 +123,7 @@ const renderCCFBadge = (level, x) => {
 const renderChart = (datas, labelWidth, progressWidth, unit) => { //(label, color, height, num, unit) => {
   let chart = "";
   let maxNum = datas.reduce((a, b) => Math.max(a, b.data), 0);
-  maxNum = (parseInt(maxNum / 100) + 1) * 100;
+  maxNum = (parseInt((maxNum-1) / 100) + 1) * 100;
 
   for(let i = 0; i < datas.length; ++i) {
     const width = (datas[i].data+1) / (maxNum+1) * progressWidth;
@@ -145,10 +148,34 @@ const renderChart = (datas, labelWidth, progressWidth, unit) => { //(label, colo
   return coordinate + chart;
 }
 
+/**
+ * 
+ * @param {string} name 用户名
+ * @param {*} color 用户颜色
+ * @param {*} ccfLevel 用户ccf等级
+ * @param {*} title 标题的后缀
+ */
+const renderNameTitle = (name, color, ccfLevel, title) => {
+  const nameLength = anafanafo(name)/10*1.8;
+  const nameColor = NAMECOLOR[color];
+
+  return `
+  <g transform="translate(0, 0)" font-family="Verdana, Microsoft Yahei" text-rendering="geometricPrecision" font-size="18">
+    <text x="0" y="0" fill="${nameColor}" font-weight="bold" textLength="${nameLength}">
+      ${name}
+    </text>
+    ${ccfLevel < 3 ? "" : renderCCFBadge(ccfLevel, nameLength + 5)}
+    <text x="${nameLength + (ccfLevel < 3 ? 10 : 28)}" y="0" class="title" font-weight="normal">
+      ${title}
+    </text>
+  </g>`;
+}
+
 module.exports = { 
   NAMECOLOR,
   Card,
   renderError,
   renderCCFBadge,
   renderChart,
+  renderNameTitle,
 };

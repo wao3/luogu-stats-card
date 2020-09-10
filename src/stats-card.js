@@ -1,12 +1,10 @@
 const axios = require("axios");
-const anafanafo = require('anafanafo')
 const {
-  NAMECOLOR,
   Card,
   renderError,
-  renderCCFBadge,
   renderChart,
-} = require("./common.js")
+  renderNameTitle,
+} = require("./common.js");
 
 /**
  * 
@@ -66,9 +64,8 @@ const renderSVG = (stats, options) => {
   }
   
   const paddingX = 25;
-  const labelWidth = 90;  //头部文字长度
+  const labelWidth = 90;  //柱状图头部文字长度
   const progressWidth = cardWidth - 2*paddingX - labelWidth - 60; //500 - 25*2(padding) - 90(头部文字长度) - 60(预留尾部文字长度)，暂时固定，后序提供自定义选项;
-  const nameLength = anafanafo(name)/10*1.8; //计算字体大小为18pt的文本长度
 
   const datas = [
     {label: "未评定", color:"#bfbfbf", data: passed[0]},
@@ -80,22 +77,9 @@ const renderSVG = (stats, options) => {
     {label: "省选/NOI-", color:"#9d3dcf", data: passed[6]},
     {label: "NOI/NOI+/CTSC", color:"#0e1d69", data: passed[7]}
   ]
-  const charts = renderChart(datas, labelWidth, progressWidth, "题");
+  const body = renderChart(datas, labelWidth, progressWidth, "题");
 
-  const textColor = darkMode?"#fffefe":"#333333";
-
-  const title = `
-  <g transform="translate(0, 0)" font-family="Verdana, Microsoft Yahei" text-rendering="geometricPrecision" font-size="18">
-    <text x="0" y="0" fill="${NAMECOLOR[color]}" font-weight="bold" textLength="${nameLength}">
-      ${name}
-    </text>
-    ${ccfLevel < 3 ? "" : renderCCFBadge(ccfLevel, nameLength + 5)}
-    <text x="${nameLength + (ccfLevel < 3 ? 10 : 28)}" y="0" fill="${textColor}" font-weight="normal">
-      的练习情况
-    </text>
-  </g>`;
-
-  const body = `<g>${charts}</g>`
+  const title = renderNameTitle(name, color, ccfLevel, "的练习情况");
 
   return new Card({
     width: cardWidth - 2*paddingX,
