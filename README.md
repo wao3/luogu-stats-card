@@ -33,13 +33,13 @@
 1. 仅使用图片：直接复制以下内容到任意 markdown 编辑器中，并将`?id=`后面的数字更改为自己的 id 即可（id是洛谷个人主页地址的一串数字）。
 
    ```markdown
-   ![wangao的练习情况](https://luogu.vercel.app/api?id=313209)
+   ![wangao的练习情况](https://luogu.vercel.app/practice?id=313209)
    ```
 
 2. 使用图片链接：复制以下内容，第二个小括号内的地址是点击该图片跳转的地址，建议设置为洛谷个人主页。
 
    ```markdown
-   [![wangao的练习情况](https://luogu.vercel.app/api?id=313209)](https://github.com/wao3/luogu-stats-card)
+   [![wangao的练习情况](https://luogu.vercel.app/practice?id=313209)](https://github.com/wao3/luogu-stats-card)
    ```
 
 ### 估值信息
@@ -51,12 +51,12 @@
 1. 仅使用图片：复制以下内容到任意 markdown 编辑器中，并将 `?id=`后面的数字更改为自己的 id，将`scores=`后面更换为自己的估值信息，一共 5 个数字，用逗号分隔。
 
    ```markdown
-   ![wangao的估值信息](http://localhost:3000/guzhi?id=313209&scores=100,65,45,15,0)
+   ![wangao的估值信息](http://luogu.vercel.app/guzhi?id=313209&scores=100,65,45,15,0)
    ```
    
 2. 使用图片链接：复制以下内容，第二个小括号内的地址是点击该图片跳转的地址，建议设置为洛谷个人主页。
    ```markdown
-   [![wangao的估值信息](http://localhost:3000/guzhi?id=313209&scores=100,65,45,15,0)](https://github.com/wao3/luogu-stats-card)
+   [![wangao的估值信息](http://luogu.vercel.app/guzhi?id=313209&scores=100,65,45,15,0)](https://github.com/wao3/luogu-stats-card)
    ```
    
 
