@@ -18,9 +18,9 @@
 
 ## 效果预览
 
-![wangao的练习情况](https://luogu.vercel.app/api?id=313209)
+![wangao的练习情况](https://luogu.vercel.app/practice?id=313209)
 
-![wangao的估值信息](http://localhost:3000/guzhi?id=313209&scores=100,65,45,15,0)
+![wangao的估值信息](https://luogu.vercel.app/guzhi?id=313209&scores=100,65,45,15,0)
 
 *(上面的估值仅为展示效果，本人估值并没有这么高)*
 
