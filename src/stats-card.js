@@ -77,9 +77,10 @@ const renderSVG = (stats, options) => {
     {label: "省选/NOI-", color:"#9d3dcf", data: passed[6]},
     {label: "NOI/NOI+/CTSC", color:"#0e1d69", data: passed[7]}
   ]
+  const passedSum = passed.reduce((a, b) => a + b);
   const body = renderChart(datas, labelWidth, progressWidth, "题");
 
-  const title = renderNameTitle(name, color, ccfLevel, "的练习情况");
+  const title = renderNameTitle(name, color, ccfLevel, "的练习情况", cardWidth, `已通过: ${passedSum}题`);
 
   return new Card({
     width: cardWidth - 2*paddingX,

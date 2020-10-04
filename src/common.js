@@ -151,11 +151,12 @@ const renderChart = (datas, labelWidth, progressWidth, unit) => { //(label, colo
 /**
  * 
  * @param {string} name 用户名
- * @param {*} color 用户颜色
- * @param {*} ccfLevel 用户ccf等级
- * @param {*} title 标题的后缀
+ * @param {string} color 用户颜色
+ * @param {number} ccfLevel 用户ccf等级
+ * @param {string} title 标题的后缀
+ * @param {string} rightTop 右上角的标签（展示总数）
  */
-const renderNameTitle = (name, color, ccfLevel, title) => {
+const renderNameTitle = (name, color, ccfLevel, title, cardWidth, rightTop) => {
   const nameLength = anafanafo(name)/10*1.8;
   const nameColor = NAMECOLOR[color];
 
@@ -167,6 +168,9 @@ const renderNameTitle = (name, color, ccfLevel, title) => {
     ${ccfLevel < 3 ? "" : renderCCFBadge(ccfLevel, nameLength + 5)}
     <text x="${nameLength + (ccfLevel < 3 ? 10 : 28)}" y="0" class="title" font-weight="normal">
       ${title}
+    </text>
+    <text x="${cardWidth - 160}" y="0" class="title" font-weight="normal" font-size="13px">
+      ${rightTop}
     </text>
   </g>`;
 }

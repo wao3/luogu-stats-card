@@ -4,6 +4,7 @@
   ],
   "routes": [
     { "src": "/practice", "dest": "/api/index.js" },
+    { "src": "/guzhi", "dest": "/api/guzhi.js" },
     { "src": "/", "status": 301, "headers": { "Location": "https://github.com/wao3/luogu-stats-card" } }
   ],
   "regions": ["hkg1"]

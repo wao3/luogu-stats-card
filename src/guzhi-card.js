@@ -7,10 +7,18 @@ const {
 
 const renderGuzhiCard = (userInfo, scores, options) => {
   const regNum = /^\d*$/;
-  const scoreArray = scores.split(",").filter(x => regNum.test(x)).map(x => parseInt(x)).filter(x => x >= 0 && x <= 100);
+  if(!scores || typeof scores !== 'string') {
+    return renderError('估值信息不能为空', {width: 400});
+  }
+  let sp = ',';
+  if(scores.indexOf('，') >= 0) {
+    sp = '，';
+  }
+  const scoreArray = scores.split(sp).filter(x => regNum.test(x)).map(x => parseInt(x)).filter(x => x >= 0 && x <= 100);
   if(scoreArray.length != 5) {
     return renderError(`估值信息"${scores}"不合法`, {width: 400});
   }
+  const scoreSum = scoreArray.reduce((a, b) => a+b);
 
   const {
     name,
@@ -42,7 +50,7 @@ const renderGuzhiCard = (userInfo, scores, options) => {
     {label: "获得成就", data: scoreArray[4], color: getScoreColor(scoreArray[4])},
   ]
 
-  const title = userInfo != null ? renderNameTitle(name, color, ccfLevel, "的估值") : "";
+  const title = userInfo != null ? renderNameTitle(name, color, ccfLevel, "的估值信息", cardWidth, `总估值: ${scoreSum}分`) : "";
 
   const body = renderChart(datas, labelWidth, progressWidth, "分");
 
