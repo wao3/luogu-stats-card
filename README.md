@@ -20,9 +20,9 @@
 
 ![wangao的练习情况](https://luogu.vercel.app/practice?id=313209)
 
-![wangao的估值信息](https://luogu.vercel.app/guzhi?id=313209&scores=100,65,45,15,0)
+![wangao的咕值信息](https://luogu.vercel.app/guzhi?id=313209&scores=100,65,45,15,0)
 
-*(上面的估值仅为展示效果，本人估值并没有这么高)*
+*(上面的咕值仅为展示效果，本人咕值并没有这么高)*
 
 ## 如何使用
 
@@ -42,21 +42,21 @@
    [![wangao的练习情况](https://luogu.vercel.app/practice?id=313209)](https://github.com/wao3/luogu-stats-card)
    ```
 
-### 估值信息
+### 咕值信息
 
-估值信息无法自动获取数据，如果需要必须要提供 cookie ，但是 这种方法十分不安全，并且不方便，所以获取估值卡片需要手动输入估值信息，具体使用方法如下。
+咕值信息无法自动获取数据，如果需要必须要提供 cookie ，但是 这种方法十分不安全，并且不方便，所以获取咕值卡片需要手动输入咕值信息，具体使用方法如下。
 
-复制以下内容到任意 markdown 编辑器中，并将 `?id=`后面的数字更改为自己的 id，将`scores=`后面更换为自己的估值信息，一共 5 个数字，用逗号分隔。
+复制以下内容到任意 markdown 编辑器中，并将 `?id=`后面的数字更改为自己的 id，将`scores=`后面更换为自己的咕值信息，一共 5 个数字，用逗号分隔。
 
-1. 仅使用图片：复制以下内容到任意 markdown 编辑器中，并将 `?id=`后面的数字更改为自己的 id，将`scores=`后面更换为自己的估值信息，一共 5 个数字，用逗号分隔。
+1. 仅使用图片：复制以下内容到任意 markdown 编辑器中，并将 `?id=`后面的数字更改为自己的 id，将`scores=`后面更换为自己的咕值信息，一共 5 个数字，用逗号分隔。
 
    ```markdown
-   ![wangao的估值信息](http://luogu.vercel.app/guzhi?id=313209&scores=100,65,45,15,0)
+   ![wangao的咕值信息](http://luogu.vercel.app/guzhi?id=313209&scores=100,65,45,15,0)
    ```
    
 2. 使用图片链接：复制以下内容，第二个小括号内的地址是点击该图片跳转的地址，建议设置为洛谷个人主页。
    ```markdown
-   [![wangao的估值信息](http://luogu.vercel.app/guzhi?id=313209&scores=100,65,45,15,0)](https://github.com/wao3/luogu-stats-card)
+   [![wangao的咕值信息](http://luogu.vercel.app/guzhi?id=313209&scores=100,65,45,15,0)](https://github.com/wao3/luogu-stats-card)
    ```
    
 
