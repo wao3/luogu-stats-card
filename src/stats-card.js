@@ -12,7 +12,10 @@ const {
  * @returns {Object} 获取的用户数据 {name, color, ccfLevel, passed, hideInfo}
  */
 async function fetchStats(id) {
-  const res = await axios.get(`https://www.luogu.com.cn/user/${id}?_contentOnly`)
+  //debug 测试请求
+  await axios.get('https://tc-0glpuj1k4e75e5ec-1300876583.ap-shanghai.service.tcloudbase.com/hello');
+
+  //const res = await axios.get(`https://www.luogu.com.cn/user/${id}?_contentOnly`)
 
   const stats = {
     name: "NULL",
@@ -21,6 +24,8 @@ async function fetchStats(id) {
     passed: [0,0,0,0,0,0,0,0],
     hideInfo: false
   }
+  //dubug
+  return stats;
   if(res.data.code !== 200) {
     return stats;
   }
