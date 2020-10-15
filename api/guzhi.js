@@ -6,6 +6,7 @@ module.exports = async (req, res) => {
   const { id, scores, hide_title, dark_mode, card_width = 500 } = req.query;
 
   res.setHeader("Content-Type", "image/svg+xml");
+  return res.send(renderError('项目暂时维护中', {darkMode: dark_mode}));
   res.setHeader("Cache-Control", "public, max-age=43200"); // 43200s（12h） cache
 
   const regNum = /^[1-9]\d*$/;
