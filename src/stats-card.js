@@ -13,7 +13,7 @@ const {
  */
 async function fetchStats(id) {
   //debug 测试请求
-  const res = await axios.get(`https://tc-0glpuj1k4e75e5ec-1300876583.ap-shanghai.service.tcloudbase.com/luogu?id=${id}`);
+  const res = await axios.get(`https://a-1c37c2-1300876583.ap-shanghai.service.tcloudbase.com/luogu?id=${id}`);
 
   //const res = await axios.get(`https://www.luogu.com.cn/user/${id}?_contentOnly`)
 
