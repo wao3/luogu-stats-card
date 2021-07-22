@@ -123,3 +123,6 @@
 ## LICENSE
 
 [![MIT License](https://badgen.net/github/license/wao3/luogu-stats-card)](https://github.com/wao3/luogu-stats-card/blob/master/LICENSE)
+
+---
+[![powered by vercel](https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg)](https://vercel.com/?utm_source=luogu-stats-card&utm_campaign=oss)
