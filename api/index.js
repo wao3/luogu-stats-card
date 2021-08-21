@@ -9,6 +9,10 @@ module.exports = async (req, res) => {
     card_width = 500,
   } = req.query;
 
+  return res.send(
+    renderError(`请访问 https://luogu.wao3.cn 更换域名`, { darkMode: dark_mode })
+  );
+
   res.setHeader("Content-Type", "image/svg+xml");
   res.setHeader("Cache-Control", "public, max-age=43200"); // 43200s（12h） cache
 

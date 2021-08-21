@@ -79,7 +79,7 @@ const renderError = (e, option) => {
   const css = `.t {font: 600 18px 'Microsoft Yahei UI'; fill: #e74c3c;}`
   const text = `<text class="t" dominant-baseline="text-before-edge">${e}</text>`
   return new Card({
-    width: 300,
+    width: 500,
     height: 23,
     hideTitle: true,
     css,
