@@ -1,0 +1,34 @@
+{
+  "version": "2.0",
+  "envId": "luogu-7gv9ryjh2760929a",
+  "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+  "functionRoot": "./functions",
+  "functions": [
+    {
+        "name": "index",
+        "timeout": 10,
+        "envVariables": {},
+        "runtime": "Nodejs12.16",
+        "memorySize": 128,
+        "handler": "index.main"
+    },
+    {
+      "name": "luogu",
+      "timeout": 10,
+      "envVariables": {},
+      "runtime": "Nodejs12.16",
+      "memorySize": 128,
+      "handler": "index.main"
+    }
+  ],
+  "framework": {
+    "name": "luogu-stats-card",
+    "plugins": {
+      "function": {
+        "use": "@cloudbase/framework-plugin-function",
+        "inputs": {}
+      }
+    }
+  },
+  "region": "ap-shanghai"
+}
