@@ -16,7 +16,8 @@ module.exports.main = async function (event, context) {
   return {
     statusCode: 200,
     headers: {
-      "content-type": "image/svg+xml; charset=utf-8"
+      "content-type": "image/svg+xml; charset=utf-8",
+      "Cache-Control": "public, max-age=43200",
     },
     body: result
   };
