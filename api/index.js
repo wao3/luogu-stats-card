@@ -9,12 +9,12 @@ module.exports = async (req, res) => {
     card_width = 500,
   } = req.query;
 
-  return res.send(
-    renderError(`请访问 https://luogu.wao3.cn 更换域名`, { darkMode: dark_mode })
-  );
-
   res.setHeader("Content-Type", "image/svg+xml");
   res.setHeader("Cache-Control", "public, max-age=43200"); // 43200s（12h） cache
+  
+  return res.send(
+    renderError(`访问 https://luogu.wao3.cn 更换域名，造成不便敬请谅解`, { darkMode: dark_mode })
+  );
 
   const validId = /^[1-9]\d*$/;
   const clamp = (min, max, n) => Math.max(min, Math.min(max, n));
