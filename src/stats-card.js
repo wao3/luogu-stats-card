@@ -9,13 +9,16 @@ const {
 /**
  * 
  * @param {number} id 用户id
+ * @param {boolean} useProxy 使用代理
  * @returns {Object} 获取的用户数据 {name, color, ccfLevel, passed, hideInfo}
  */
-async function fetchStats(id) {
+async function fetchStats(id, useProxy) {
   //debug 测试请求
-  const res = await axios.get(`https://a-1c37c2-1300876583.ap-shanghai.service.tcloudbase.com/luogu?id=${id}`);
-
-  //const res = await axios.get(`https://www.luogu.com.cn/user/${id}?_contentOnly`)
+  let reqUrl = `https://www.luogu.com.cn/user/${id}?_contentOnly`;
+  if (useProxy) {
+    reqUrl = `https://a-1c37c2-1300876583.ap-shanghai.service.tcloudbase.com/luogu?id=${id}`;
+  }
+  const res = await axios.get(reqUrl);
 
   const stats = {
     name: "NULL",

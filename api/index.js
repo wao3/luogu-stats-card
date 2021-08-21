@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
     return res.send(renderError(`卡片宽度"${card_width}"不合法`, {darkMode: dark_mode}));
   }
 
-  const stats = await fetchStats(id);
+  const stats = await fetchStats(id, true);
   return res.send(renderSVG(stats, {
     hideTitle: hide_title,
     darkMode: dark_mode,

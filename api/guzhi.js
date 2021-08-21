@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
   let stats = null;
 
   if(id != undefined) {
-    stats = await fetchStats(id);
+    stats = await fetchStats(id, true);
   }
 
   return res.send(
