@@ -5,12 +5,12 @@
   "functionRoot": "./functions",
   "functions": [
     {
-        "name": "index",
-        "timeout": 10,
-        "envVariables": {},
-        "runtime": "Nodejs12.16",
-        "memorySize": 128,
-        "handler": "index.main"
+      "name": "index",
+      "timeout": 10,
+      "envVariables": {},
+      "runtime": "Nodejs12.16",
+      "memorySize": 128,
+      "handler": "index.main"
     },
     {
       "name": "luogu",
@@ -27,6 +27,16 @@
       "function": {
         "use": "@cloudbase/framework-plugin-function",
         "inputs": {}
+      },
+      "client": {
+        "use": "@cloudbase/framework-plugin-database",
+        "inputs": {
+          "collections": [
+            {
+              "collectionName": "cache"
+            }
+          ]
+        }
       }
     }
   },

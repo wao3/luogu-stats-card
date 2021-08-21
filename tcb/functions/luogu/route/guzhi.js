@@ -1,4 +1,5 @@
-const { renderGuzhiCard, fetchStats } = require('luogu-stats-card');
+const { renderGuzhiCard } = require('luogu-stats-card');
+const fetchStats = require('../fetchStats');
 
 module.exports = async function (event) {
   const {

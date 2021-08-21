@@ -9,6 +9,7 @@
   "author": "wao",
   "license": "MIT",
   "dependencies": {
+    "@cloudbase/node-sdk": "^2.7.1",
     "luogu-stats-card": "^1.0.1"
   }
 }
