@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
   } = req.query;
 
   res.setHeader("Content-Type", "image/svg+xml");
-  res.setHeader("Cache-Control", "public, max-age=43200"); // 43200s（12h） cache
+  // res.setHeader("Cache-Control", "public, max-age=43200"); // 43200s（12h） cache
   
   return res.send(
     renderError(`访问 https://luogu.wao3.cn 更换域名，造成不便敬请谅解`, { darkMode: dark_mode })
