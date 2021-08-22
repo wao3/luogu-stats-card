@@ -37,6 +37,15 @@
             }
           ]
         }
+      },
+      "homepage": {
+        "use": "@cloudbase/framework-plugin-website",
+        "inputs": {
+          "installCommand": "npm install",
+          "buildCommand": "npm run build",
+          "outputPath": "dist",
+          "ignore": [".git", ".github", "node_modules", "cloudbaserc.js"]
+        }
       }
     }
   },
