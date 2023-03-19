@@ -2,3 +2,4 @@ package-lock.json
 test.svg
 node_modules
 .vercel
+/.idea/
