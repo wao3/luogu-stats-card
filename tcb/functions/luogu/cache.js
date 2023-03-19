@@ -1,6 +1,7 @@
 const cloudbase = require('@cloudbase/node-sdk')
+
 const app = cloudbase.init({
-  env: 'luogu-7gv9ryjh2760929a'
+  env: cloudbase.SYMBOL_CURRENT_ENV,
 })
 const db = app.database();
 

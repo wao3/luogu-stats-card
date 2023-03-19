@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "envId": "luogu-7gv9ryjh2760929a",
+  "envId": "cloudbase-baas-5g6v8dai30476fe3",
   "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
   "functionRoot": "./functions",
   "functions": [
@@ -44,7 +44,12 @@
           "installCommand": "npm install",
           "buildCommand": "npm run build",
           "outputPath": "dist",
-          "ignore": [".git", ".github", "node_modules", "cloudbaserc.js"]
+          "ignore": [
+            ".git",
+            ".github",
+            "node_modules",
+            "cloudbaserc.js"
+          ]
         }
       }
     }
