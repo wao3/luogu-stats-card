@@ -1,0 +1,70 @@
+package tmpl
+
+import (
+	"fmt"
+	"strings"
+
+	"github.com/wao3/luogu-stats-card/model"
+)
+
+var CardTmpl = &TmplStruct{
+	Name: "CardTmpl",
+	Tmpl: `
+<svg
+	xmlns="http://www.w3.org/2000/svg" width="{{.Width}}" height="{{.Height}}" viewBox="0 0 {{.Width}} {{.Height}}" fill="none">
+	<style>{{.Css}}</style>
+	<rect id="background" x="0.5" y="0.5" rx="4.5" fill="{{.Colors.BackGround}}" stroke="{{.Colors.Border}}" stroke-width="1"  stroke-opacity="1" width="99%" height="99%"/>
+	{{if not .HideName}} {{template "NameTitleTmpl" .Name}} {{end}}
+	{{if .HideName}}
+		<g transform="translate(25, 25)">
+	{{else}}
+		<g transform="translate(25, 55)">
+	{{end}}
+	{{template "BoxTmpl" .Content}}
+	</g>
+</svg>
+`,
+}
+
+type Card[Box BoxType] struct {
+	Width   int
+	Colors  model.Colors
+	Name    *NameTitle
+	Content *Box
+}
+
+func NewCard[Box BoxType](name *NameTitle, content *Box, width int, colors model.Colors) *Card[Box] {
+	return &Card[Box]{
+		Width:   width,
+		Name:    name,
+		Content: content,
+		Colors:  colors,
+	}
+}
+
+func (c *Card[T]) Height() int {
+	h := 50
+	if c.Content != nil {
+		h += (*c.Content).BoxHeight()
+	}
+	if !c.HideName() {
+		h += 30
+	}
+	return h
+}
+
+func (c *Card[T]) HideName() bool {
+	return c.Name == nil
+}
+
+const ICONFONT = `@font-face { font-family: 'iconfont'; src: url('data:font/ttf;charset=utf-8;base64,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') format('truetype');} `
+
+func (c *Card[T]) Css() string {
+	var s = strings.Builder{}
+	s.WriteString(ICONFONT)
+	s.WriteString(`#name{font-weight:bold} `)
+	s.WriteString(fmt.Sprintf(`.line{stroke:%s; stroke-width:1} `, c.Colors.Line))
+	s.WriteString(fmt.Sprintf(`.text{font-size:11px; fill:%s;} `, c.Colors.Text))
+	s.WriteString(fmt.Sprintf(`.title {font-size:18px; fill:%s;} `, c.Colors.Text))
+	return s.String()
+}
