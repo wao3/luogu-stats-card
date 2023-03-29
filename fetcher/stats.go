@@ -7,7 +7,7 @@ import (
 	"github.com/wao3/luogu-stats-card/model/fetch"
 )
 
-var UserProfileCache = cache.NewCache[fetch.UserProfileData](cache.DefaultExpireTime, cache.DefaultPurgeTime)
+var UserProfileCache = cache.NewCache[fetch.UserProfileData](cache.DefaultExpireTime, cache.DefaultPurgeTime, cache.DefaultCapacity)
 
 func FetchUserProfile(uid int) (*fetch.UserProfileData, error) {
 	var key = fmt.Sprintf("UserProfile_%d", uid)

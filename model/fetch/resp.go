@@ -1,7 +1,7 @@
 package fetch
 
 type DataType interface {
-	UserProfileData
+	string | UserProfileData
 }
 
 type Resp[data DataType] struct {

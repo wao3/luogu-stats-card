@@ -20,5 +20,5 @@ func main() {
 	http.HandleFunc("/api/practice", handler.StatsHandler)
 	http.HandleFunc("/api/guzhi", handler.GuzhiHandler)
 	http.Handle("/", http.FileServer(http.FS(webFs)))
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":10127", nil))
 }

@@ -82,7 +82,15 @@
 import { debounce } from "debounce";
 import copy from 'copy-to-clipboard';
 
-const baseUrl = "https://luogu.wao3.cn";
+const domain = window.location.hostname;
+const port = window.location.port;
+const protocol = window.location.protocol;
+
+let baseUrl = protocol + "//" + domain;
+if (port !== "") {
+  baseUrl += ":" + port;
+}
+
 export default {
   data() {
     return {
