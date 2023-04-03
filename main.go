@@ -17,8 +17,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	http.HandleFunc("/api/practice", handler.StatsHandler)
-	http.HandleFunc("/api/guzhi", handler.GuzhiHandler)
+	http.HandleFunc("/api/practice", handler.RecoverHandler(handler.StatsHandler))
+	http.HandleFunc("/api/guzhi", handler.RecoverHandler(handler.GuzhiHandler))
+	http.HandleFunc("/ping", handler.RecoverHandler(handler.PingHandler))
 	http.Handle("/", http.FileServer(http.FS(webFs)))
 	log.Fatal(http.ListenAndServe(":10127", nil))
 }

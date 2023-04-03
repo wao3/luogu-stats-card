@@ -74,7 +74,7 @@ func parseGuzhi(raw string) ([]int, error) {
 	for i, guzhiStr := range guzhiStrList {
 		guzhiStr = strings.TrimSpace(guzhiStr)
 		guzhiValue, err := strconv.ParseInt(guzhiStr, 10, 64)
-		if err != nil {
+		if err != nil || guzhiValue > 100 || guzhiValue < 0 {
 			return nil, common.ErrGuzhiInvalid
 		}
 		res[i] = int(guzhiValue)
