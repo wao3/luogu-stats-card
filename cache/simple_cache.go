@@ -3,22 +3,20 @@ package cache
 import (
 	"sync"
 	"time"
-
-	"github.com/wao3/luogu-stats-card/model/fetch"
 )
 
 const DefaultExpireTime = 12 * time.Hour
 const DefaultPurgeTime = 5 * time.Minute
 const DefaultCapacity = 10000
 
-type Node[T fetch.DataType] struct {
+type Node[T any] struct {
 	key        string
 	val        *T
 	expireAt   time.Time
 	prev, next *Node[T]
 }
 
-type Cache[T fetch.DataType] struct {
+type Cache[T any] struct {
 	totalCapacity int
 	head, tail    *Node[T]
 	cache         map[string]*Node[T]
@@ -27,7 +25,7 @@ type Cache[T fetch.DataType] struct {
 	mu            sync.RWMutex
 }
 
-func NewCache[T fetch.DataType](expireTime, purgeTime time.Duration, capacity int) *Cache[T] {
+func NewCache[T any](expireTime, purgeTime time.Duration, capacity int) *Cache[T] {
 	head, tail := &Node[T]{}, &Node[T]{}
 	head.next, tail.prev = tail, head
 	c := &Cache[T]{
