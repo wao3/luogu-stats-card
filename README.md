@@ -1,5 +1,5 @@
 > 注意：为了不滥用洛谷服务器流量，本项目将缓存 12 小时用户数据，即同一个用户卡片 **24 小时内最多只会向洛谷服务器请求 2 次数据**，并且只有在用户访问卡片时才会请求数据。
-## 简介
+## 简介114514
 
 ![stars](https://badgen.net/github/stars/wao3/luogu-stats-card?cache=600)
 ![forks](https://badgen.net/github/forks/wao3/luogu-stats-card?cache=600)
