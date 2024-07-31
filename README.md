@@ -57,7 +57,7 @@
    
 2. HTML：复制以下内容到 HTML 代码中，并将 `?id=`后面的数字更改为自己的 id，将`scores=`后面更换为自己的咕值信息，一共 5 个数字，用逗号分隔。
    ```html
-   <img alt="我的练习情况" src="https://luogu.wao3.cn/api/practice?id=313209">
+   <img alt="我的估值信息" src="https://luogu.wao3.cn/api/guzhi?id=313209&scores=100,65,45,15,0">
    ```
    
 
